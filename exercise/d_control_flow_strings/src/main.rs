@@ -21,9 +21,9 @@ fn main() {
         // - If arg is "double", then call the double() function
         // - If arg is anything else, then call the count() function, passing "arg" to it.
 
-        if arg == "sum".to_string() {
+        if arg == *"sum" {
             sum();
-        } else if arg == "double".to_string() {
+        } else if arg == *"double" {
             double();
         } else {
             count(arg);
@@ -46,7 +46,7 @@ fn sum() {
     }
 
 
-    println!("The sum is {}", sum);
+    println!("The sum is {sum}");
 }
 
 fn double() {
@@ -61,7 +61,7 @@ fn double() {
         count += 1;
     }
 
-    println!("You can double x {} times until x is larger than 500", count);
+    println!("You can double x {count} times until x is larger than 500");
 }
 
 fn count(arg: String) {
@@ -72,7 +72,7 @@ fn count(arg: String) {
 
     let mut count = 0;
     loop {
-        print!("{} ", arg);
+        print!("{arg} ");
         count += 1;
         if count > 7 { break };
     }
